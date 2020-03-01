@@ -47,7 +47,7 @@ userRouter.patch('',authFactory(["admin"]), async (req, res)=>{
         if (itemsFromBody != "userId")
         updates.push([`${itemsFromBody}`,`${req.body[itemsFromBody]}`])
     }
-   console.log(updates)
+//   console.log(updates)
    let user = await updateUser(updates,id)
    res.json(user)
 })

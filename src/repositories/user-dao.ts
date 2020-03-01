@@ -101,7 +101,6 @@ export async function daoUpdateUser(updates:object[],id:number):Promise<User>{
 let client:PoolClient
 try{
     client = await connectionPool.connect()
-    console.log("greetings from dao. Updates->",updates)
     let updateUsername:boolean = false;
     let newUsername:string = ''
     let updatePassword:boolean = false;
