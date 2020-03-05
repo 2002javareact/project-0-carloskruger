@@ -15,7 +15,7 @@ dotenv.config();
 
    console.log("USER: ", process.env.PG_USER)
    console.log("DATABASE: ", process.env.DATABASE)
-   console.log("PWD: ",process.env.PASSWORD)
+   console.log("PASSWORD: ",process.env.PASSWORD)
    console.log("HOST: ",process.env.HOST)
 
 export const connectionPool:Pool = new Pool(
