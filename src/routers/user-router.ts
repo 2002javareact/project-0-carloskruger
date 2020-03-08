@@ -9,7 +9,7 @@ import { UserDTO } from '../dtos/UserDTO'
 
 
 
-userRouter.get('',[authFactory(["admin"]), async (req, res)=>{
+userRouter.get('',[authFactory(["admin","finance-manager"]), async (req, res)=>{
    
     //get all of our users
   //  res.json(users)

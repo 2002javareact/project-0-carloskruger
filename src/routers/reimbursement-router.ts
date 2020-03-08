@@ -7,7 +7,7 @@ import { ReimbursementDTO } from '../dtos/ReimbursementDTO'
 
 export const reimburseRouter = express.Router()
 // every single opath starts with /reimbursements
-reimburseRouter.post('',authFactory(['finance-manager']), async (req,res)=>{
+reimburseRouter.post('',authFactory(['finance-manager','admin']), async (req,res)=>{
 
     let {
         reimbursementId,
@@ -34,7 +34,7 @@ reimburseRouter.post('',authFactory(['finance-manager']), async (req,res)=>{
     
 })
 
-reimburseRouter.patch('',authFactory(["finance-manager"]), async (req, res)=>{
+reimburseRouter.patch('',authFactory(["finance-manager","admin"]), async (req, res)=>{
     let updates= []
     let id:number = +req.body.reimbursementId
     for (let itemsFromBody in req.body){
@@ -48,7 +48,7 @@ reimburseRouter.patch('',authFactory(["finance-manager"]), async (req, res)=>{
 
 
 
-reimburseRouter.get('/status/:statusId',authFactory(['finance-manager']), async(req,res)=>{
+reimburseRouter.get('/status/:statusId',authFactory(['finance-manager','admin']), async(req,res)=>{
     const id = +req.params.statusId
     if(isNaN(id)){
         res.sendStatus(400)
@@ -64,7 +64,7 @@ reimburseRouter.get('/status/:statusId',authFactory(['finance-manager']), async(
 }
 })
 
-reimburseRouter.get('/author/userId/:userId',authFactory(['finance-manager']), async(req,res)=>{
+reimburseRouter.get('/author/userId/:userId',authFactory(['finance-manager','admin']), async(req,res)=>{
     const id = +req.params.userId;
     if(isNaN(id)){
         res.sendStatus(400)

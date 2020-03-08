@@ -9,15 +9,24 @@ import {reimburseRouter} from './routers/reimbursement-router'
 import { HttpError } from './errors/HttpError'
 import { BadCredentialsError } from './errors/BadCredentialsError'
 import { findUserByUsernameAndPassword} from './services/user-service'
+import { corsFilter } from './middleware/cors-filter'
 
 
 const app = express()
+
+
+
+
+
+
 
 app.use('/', bodyparser.json())
 
 app.use(loggingMiddleware)
 
 app.use(sessionMiddleware)
+
+app.use(corsFilter)
 
 app.post('/login', async (req,res)=>{
     //step one, get data from user
