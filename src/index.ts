@@ -14,12 +14,6 @@ import { corsFilter } from './middleware/cors-filter'
 
 const app = express()
 
-
-
-
-
-
-
 app.use('/', bodyparser.json())
 
 app.use(loggingMiddleware)
